@@ -41,8 +41,8 @@ export function App() {
 
   // Verifica se há dados suficientes para calcular
   const hasValidData = currentPatrimony !== "0,00" && 
-                       monthlyIncome !== "0,00" && 
-                       monthlyExpenses !== "0,00" && 
+                       monthlyIncome !== "" && 
+                       monthlyExpenses !== "" && 
                        yieldRate !== "" && 
                        projectionValue !== "" &&
                        parseCurrencyInput(currentPatrimony) >= 0 &&
