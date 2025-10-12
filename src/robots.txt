@@ -1,0 +1,20 @@
+# robots.txt para Planejei
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://planejei-sand.vercel.app/sitemap.xml
+
+# Crawler específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl-delay para prevenir sobrecarga
+Crawl-delay: 1
+

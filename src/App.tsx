@@ -5,6 +5,7 @@ import { formatCurrencyInput, parseCurrencyInput } from "./utils/currencyUtils";
 import { calculateProjection } from "./utils/calculationUtils";
 import { useTheme } from "./hooks/useTheme";
 import { ThemeToggleButton } from "./components/ThemeToggleButton";
+import { HeroSection } from "./components/HeroSection";
 import { FormSection } from "./components/FormSection";
 import { FinancialJourneyCard } from "./components/FinancialJourneyCard";
 import { ProjectionTable } from "./components/ProjectionTable";
@@ -86,6 +87,9 @@ export function App() {
       <ThemeToggleButton theme={theme} onToggle={toggleTheme} />
 
       <div className="max-w-7xl mx-auto p-4 md:p-8 relative z-10">
+        {/* Hero Section com H1 */}
+        <HeroSection />
+
       <div className="space-y-6 mb-8">
         {/* Formulário de entrada */}
           <FormSection

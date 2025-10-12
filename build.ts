@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import plugin from "bun-plugin-tailwind";
 import { existsSync } from "fs";
-import { rm } from "fs/promises";
+import { rm, copyFile } from "fs/promises";
 import path from "path";
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
@@ -145,5 +145,25 @@ const outputTable = result.outputs.map(output => ({
 
 console.table(outputTable);
 const buildTime = (end - start).toFixed(2);
+
+// Copiar arquivos SEO importantes para dist
+const seoFiles = ['sitemap.xml', 'robots.txt', 'og-image.png'];
+console.log('\n📋 Copying SEO files...');
+
+for (const file of seoFiles) {
+  const srcPath = path.join(process.cwd(), 'src', file);
+  const destPath = path.join(outdir, file);
+  
+  if (existsSync(srcPath)) {
+    try {
+      await copyFile(srcPath, destPath);
+      console.log(`  ✅ Copied ${file}`);
+    } catch (error) {
+      console.log(`  ⚠️  Failed to copy ${file}: ${error}`);
+    }
+  } else {
+    console.log(`  ℹ️  ${file} not found, skipping`);
+  }
+}
 
 console.log(`\n✅ Build completed in ${buildTime}ms\n`);
