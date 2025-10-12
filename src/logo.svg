@@ -1,0 +1,71 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chartGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34D399;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FBBF24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGradient)"/>
+  
+  <!-- Shadow effect -->
+  <circle cx="256" cy="256" r="230" fill="rgba(0,0,0,0.1)"/>
+  
+  <!-- Inner circle -->
+  <circle cx="256" cy="256" r="220" fill="url(#bgGradient)"/>
+  
+  <!-- Growth chart bars -->
+  <rect x="120" y="280" width="50" height="80" rx="8" fill="rgba(255,255,255,0.3)"/>
+  <rect x="185" y="240" width="50" height="120" rx="8" fill="rgba(255,255,255,0.5)"/>
+  <rect x="250" y="200" width="50" height="160" rx="8" fill="rgba(255,255,255,0.7)"/>
+  <rect x="315" y="160" width="50" height="200" rx="8" fill="url(#chartGradient)"/>
+  
+  <!-- Trend arrow -->
+  <g transform="translate(150, 140)">
+    <path d="M 0 80 Q 60 60, 120 40 Q 180 20, 220 10" 
+          stroke="url(#arrowGradient)" 
+          stroke-width="12" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          fill="none"/>
+    
+    <!-- Arrow head -->
+    <path d="M 220 10 L 200 0 L 210 20 Z" 
+          fill="url(#arrowGradient)"/>
+  </g>
+  
+  <!-- Dollar/Money symbol -->
+  <g transform="translate(256, 140)">
+    <circle cx="0" cy="0" r="35" fill="rgba(255,255,255,0.95)" stroke="url(#bgGradient)" stroke-width="4"/>
+    <text x="0" y="0" 
+          font-family="Arial, sans-serif" 
+          font-size="48" 
+          font-weight="bold" 
+          fill="url(#bgGradient)" 
+          text-anchor="middle" 
+          dominant-baseline="central">R$</text>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <circle cx="140" cy="180" r="6" fill="#FBBF24" opacity="0.8"/>
+  <circle cx="380" cy="200" r="8" fill="#34D399" opacity="0.8"/>
+  <circle cx="380" cy="320" r="6" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="130" cy="360" r="5" fill="#60A5FA" opacity="0.8"/>
+  
+  <!-- Plus signs for growth -->
+  <g opacity="0.6">
+    <path d="M 410 260 L 410 280 M 400 270 L 420 270" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 100 200 L 100 215 M 92.5 207.5 L 107.5 207.5" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
