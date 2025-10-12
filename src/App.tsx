@@ -9,6 +9,7 @@ import { FormSection } from "./components/FormSection";
 import { FinancialJourneyCard } from "./components/FinancialJourneyCard";
 import { ProjectionTable } from "./components/ProjectionTable";
 import { InfoSection } from "./components/InfoSection";
+import { Footer } from "./components/Footer";
 
 export function App() {
   const [currentPatrimony, setCurrentPatrimony] = useState<string>("0,00");
@@ -106,8 +107,8 @@ export function App() {
             onSimulate={handleSimulate}
           />
 
-          {/* Resumo Lúdico - Só aparece quando usuário simula */}
-          {hasValidData && showResults && (
+        {/* Resumo Lúdico - Só aparece quando usuário simula */}
+        {hasValidData && showResults && (
             <FinancialJourneyCard
               currentPatrimony={currentPatrimony}
               monthlyIncome={monthlyIncome}
@@ -123,10 +124,10 @@ export function App() {
               totalGrowth={totalGrowth}
             />
           )}
-        </div>
+      </div>
 
-        {/* Tabela de projeção - Só aparece quando usuário simula */}
-        {hasValidData && showResults && (
+      {/* Tabela de projeção - Só aparece quando usuário simula */}
+      {hasValidData && showResults && (
           <ProjectionTable
             projections={projections}
             isExpanded={isTableExpanded}
@@ -137,6 +138,9 @@ export function App() {
       {/* Seção Informativa - Artigo sobre como calcular (sempre visível) */}
         <InfoSection />
       </div>
+
+      {/* Rodapé */}
+      <Footer />
     </>
   );
 }
