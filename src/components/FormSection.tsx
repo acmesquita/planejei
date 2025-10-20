@@ -47,8 +47,8 @@ export const FormSection: React.FC<FormSectionProps> = ({
       <div className="space-y-6">
         {/* Seção: Situação Financeira Atual */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wide">
-            💰 Situação Financeira Atual
+          <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-200 mb-3 uppercase tracking-wide">
+            Situação Financeira Atual
           </h3>
           <div className="grid md:grid-cols-3 gap-4">
             <div>
@@ -108,8 +108,8 @@ export const FormSection: React.FC<FormSectionProps> = ({
 
         {/* Seção: Parâmetros da Simulação */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wide">
-            📊 Parâmetros da Simulação
+          <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-200 mb-3 uppercase tracking-wide">
+            Parâmetros da Simulação
           </h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
@@ -183,8 +183,8 @@ export const FormSection: React.FC<FormSectionProps> = ({
             disabled={!hasValidData}
             className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 ${
               hasValidData
-                ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] cursor-pointer'
-                : 'bg-gray-700 text-gray-500 cursor-not-allowed opacity-50'
+                ? 'bg-gradient-to-r from-purple-600 to-sky-800 hover:from-purple-700 hover:to-sky-900 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] cursor-pointer'
+                : 'bg-slate-800 text-slate-400 dark:text-slate-200 cursor-not-allowed opacity-50'
             }`}
           >
             {hasValidData ? '🚀 Simular Evolução do Patrimônio' : '⚠️ Preencha todos os campos'}
