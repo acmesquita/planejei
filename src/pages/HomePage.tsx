@@ -79,7 +79,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const totalYield = projections.reduce((sum, p) => sum + p.yield, 0);
   const totalMonths = projectionPeriod === "years" ? parseInt(projectionValue) * 12 : parseInt(projectionValue);
   return (
-    <div className="max-w-7xl mx-auto p-4 md:p-8">
+    <div className="max-w-7xl mx-auto p-4 md:p-8 overflow-x-hidden">
       {/* Hero Section */}
       <header className="text-center mb-12 pt-8">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-slate-400 bg-clip-text text-transparent">
@@ -112,30 +112,32 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </p>
         </div>
 
-        <div className="space-y-6 mb-8">
+        <div className="space-y-6 mb-8 w-full">
           {/* Formulário de entrada */}
-          <FormSection
-            currentPatrimony={currentPatrimony}
-            monthlyIncome={monthlyIncome}
-            monthlyExpenses={monthlyExpenses}
-            yieldRate={yieldRate}
-            yieldPeriod={yieldPeriod}
-            projectionValue={projectionValue}
-            projectionPeriod={projectionPeriod}
-            hasValidData={hasValidData}
-            onCurrentPatrimonyChange={handleCurrencyChange(setCurrentPatrimony)}
-            onMonthlyIncomeChange={handleCurrencyChange(setMonthlyIncome)}
-            onMonthlyExpensesChange={handleCurrencyChange(setMonthlyExpenses)}
-            onYieldRateChange={(e) => handleFieldChange(setYieldRate)(e.target.value)}
-            onYieldPeriodChange={(e) => setYieldPeriod(e.target.value as YieldPeriod)}
-            onProjectionValueChange={(e) => handleFieldChange(setProjectionValue)(e.target.value)}
-            onProjectionPeriodChange={(e) => setProjectionPeriod(e.target.value as ProjectionPeriod)}
-            onSimulate={handleSimulate}
-          />
+          <div className="w-full">
+            <FormSection
+              currentPatrimony={currentPatrimony}
+              monthlyIncome={monthlyIncome}
+              monthlyExpenses={monthlyExpenses}
+              yieldRate={yieldRate}
+              yieldPeriod={yieldPeriod}
+              projectionValue={projectionValue}
+              projectionPeriod={projectionPeriod}
+              hasValidData={hasValidData}
+              onCurrentPatrimonyChange={handleCurrencyChange(setCurrentPatrimony)}
+              onMonthlyIncomeChange={handleCurrencyChange(setMonthlyIncome)}
+              onMonthlyExpensesChange={handleCurrencyChange(setMonthlyExpenses)}
+              onYieldRateChange={(e) => handleFieldChange(setYieldRate)(e.target.value)}
+              onYieldPeriodChange={(e) => setYieldPeriod(e.target.value as YieldPeriod)}
+              onProjectionValueChange={(e) => handleFieldChange(setProjectionValue)(e.target.value)}
+              onProjectionPeriodChange={(e) => setProjectionPeriod(e.target.value as ProjectionPeriod)}
+              onSimulate={handleSimulate}
+            />
+          </div>
 
           {/* Resumo Lúdico - Só aparece quando usuário simula */}
           {hasValidData && showResults && (
-            <div id="results-section">
+            <div id="results-section" className="w-full">
               <FinancialJourneyCard
                 currentPatrimony={currentPatrimony}
                 monthlyIncome={monthlyIncome}
@@ -156,16 +158,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
         {/* Tabela de projeção - Só aparece quando usuário simula */}
         {hasValidData && showResults && (
-          <ProjectionTable
-            projections={projections}
-            isExpanded={isTableExpanded}
-            onToggleExpanded={() => setIsTableExpanded(!isTableExpanded)}
-          />
+          <div className="w-full">
+            <ProjectionTable
+              projections={projections}
+              isExpanded={isTableExpanded}
+              onToggleExpanded={() => setIsTableExpanded(!isTableExpanded)}
+            />
+          </div>
         )}
       </div>
 
       {/* Quick Access Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 w-full">
 
         {/* Recursos */}
         <div 
@@ -279,11 +283,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </div>
 
       {/* Features Section */}
-      <div className="bg-slate-400/30 rounded-xl p-8 border border-slate-600/30 mb-12">
-        <h2 className="text-2xl font-bold text-center mb-8 text-slate-500 dark:text-slate-200">
+      <div className="bg-slate-400/30 rounded-xl p-4 md:p-8 border border-slate-600/30 mb-12 w-full">
+        <h2 className="text-xl md:text-2xl font-bold text-center mb-6 md:mb-8 text-slate-500 dark:text-slate-200">
           Por que escolher o Planejei?
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
           <div className="text-center">
             <div className="text-2xl mb-3">🎯</div>
             <h3 className="text-lg font-semibold text-slate-500 dark:text-slate-200 mb-2">Precisão</h3>
@@ -309,16 +313,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </div>
 
       {/* Call to Action */}
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-slate-500 dark:text-slate-200 mb-4">
+      <div className="text-center w-full">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-500 dark:text-slate-200 mb-4">
           Pronto para começar sua jornada financeira?
         </h2>
-        <p className="text-blue-300 mb-6">
+        <p className="text-blue-300 mb-6 text-sm md:text-base">
           Use nossa calculadora gratuita e comece a planejar seu futuro hoje mesmo
         </p>
         <button
           onClick={() => onNavigate("calculator")}
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="px-6 md:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
         >
           Começar Agora
         </button>

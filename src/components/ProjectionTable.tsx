@@ -14,7 +14,7 @@ export const ProjectionTable: React.FC<ProjectionTableProps> = ({
   onToggleExpanded,
 }) => {
   return (
-    <div className="bg-card-dark rounded-lg p-6 shadow-xl border border-theme">
+    <div className="hidden md:block bg-card-dark rounded-lg p-6 shadow-xl border border-theme">
       <div 
         className="flex items-center justify-between p-3 -m-3 mb-4 rounded-lg cursor-pointer group hover:bg-theme-hover transition-all duration-300"
         onClick={onToggleExpanded}
